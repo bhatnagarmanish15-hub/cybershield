@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield | Website Security Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="topbar">
+        <h1>🛡️ CyberShield</h1>
+        <span>Website Security Analyzer</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Analyze Website Security</h2>
+            <p>Check important HTTP security headers of a public website.</p>
+
+            <form id="analyzeForm">
+                <input
+                    type="text"
+                    id="websiteUrl"
+                    placeholder="Enter website URL (example.com)"
+                    required
+                >
+                <button type="submit" id="analyzeButton">
+                    Analyze Website
+                </button>
+            </form>
+
+            <p id="statusMessage" class="status"></p>
+        </section>
+
+        <section id="results" class="results hidden">
+
+            <div class="summary">
+                <div class="score-card">
+                    <p>Security Score</p>
+                    <h2 id="score">0/100</h2>
+                </div>
+
+                <div class="score-card">
+                    <p>Risk Level</p>
+                    <h2 id="risk">-</h2>
+                </div>
+
+                <div class="score-card">
+                    <p>Checks Passed</p>
+                    <h2 id="passed">0</h2>
+                </div>
+
+                <div class="score-card">
+                    <p>Checks Failed</p>
+                    <h2 id="failed">0</h2>
+                </div>
+            </div>
+
+            <div class="details">
+                <h2>Analysis Details</h2>
+                <p><strong>Website:</strong> <span id="analyzedUrl"></span></p>
+                <p><strong>HTTP Status:</strong> <span id="httpStatus"></span></p>
+                <p id="redirectInfo"></p>
+            </div>
+
+            <div class="checks-section">
+                <h2>Security Header Checks</h2>
+                <div id="checksList"></div>
+            </div>
+
+            <div class="notice">
+                <strong>Important:</strong>
+                <span id="analysisNote"></span>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>CyberShield — Educational Security Header Analyzer</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
